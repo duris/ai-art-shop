@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "@/styles/Shop.module.css";
+import { CircularProgress } from "@chakra-ui/react";
 
 export default function Shop() {
   const [shopData, setShopData] = useState([]);
@@ -28,15 +29,17 @@ export default function Shop() {
     <>
       <h1>Shop</h1>
       <div className="shop-wrapper">
-        {shopData.length > 0
-          ? shopData.map((item: Item) => (
-              <div key={item.id} className="product">
-                <img src={item.image}></img>
-                <div className="title">{item.title}</div>
-                <div className="price">{item.price}</div>
-              </div>
-            ))
-          : "Loading..."}
+        {shopData.length > 0 ? (
+          shopData.map((item: Item) => (
+            <div key={item.id} className="product">
+              <img src={item.image}></img>
+              <div className="title">{item.title}</div>
+              <div className="price">{item.price}</div>
+            </div>
+          ))
+        ) : (
+          <CircularProgress size={5} isIndeterminate color="blue.600" />
+        )}
       </div>
     </>
   );

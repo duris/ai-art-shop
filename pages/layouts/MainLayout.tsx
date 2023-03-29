@@ -5,6 +5,7 @@ import {
   ReactNodeArray,
   ReactPropTypes,
 } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
@@ -15,9 +16,11 @@ type Props = {
 export default function MainLayout({ children }: Props) {
   return (
     <>
-      <Header />
-      <div className="container">{children}</div>
-      <Footer />
+      <ChakraProvider>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </ChakraProvider>
     </>
   );
 }

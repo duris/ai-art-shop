@@ -15,9 +15,11 @@ export default function Header() {
             Shop
           </span>
         </Link>
-        <Link href="/account/">
-          <span className={router.pathname == "/account/" ? "active" : ""}>
-            Account
+        <Link href="/account/signup">
+          <span
+            className={router.pathname == "/account/signup" ? "active" : ""}
+          >
+            Sign Up
           </span>
         </Link>
         <Link href="/account/signin">

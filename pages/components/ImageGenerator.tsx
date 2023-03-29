@@ -1,5 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import styles from "@/styles/Home.module.css";
+import {
+  Button,
+  CircularProgress,
+  CircularProgressLabel,
+  Heading,
+} from "@chakra-ui/react";
 
 export default function ImageGenerator() {
   const [prompt, setPrompt] = useState("");
@@ -8,8 +14,8 @@ export default function ImageGenerator() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setIsLoading(true);
 
+    setIsLoading(true);
     const response = await fetch("/api/get-painting", {
       method: "POST",
       mode: "cors",
@@ -30,18 +36,36 @@ export default function ImageGenerator() {
   }
 
   return (
-    <>
-      <h1>What Do You Want a Happy Painting Of?</h1>
+    <div className="image-genertion">
+      <Heading>Create</Heading>
       <form className="our-form" onSubmit={handleSubmit}>
-        <input className="prompt-field" type="text" onChange={handleChange} />
-        <button className="prompt-button" disabled={isLoading}>
-          {isLoading ? "Loading..." : "Submit"}
-        </button>
+        <input
+          className="prompt-field"
+          type="text"
+          placeholder="Enter description"
+          onChange={handleChange}
+          minLength={3}
+        />
+        <Button
+          colorScheme="facebook"
+          className="prompt-button"
+          isDisabled={isLoading}
+          type="submit"
+          w={100}
+        >
+          {isLoading ? (
+            <CircularProgress size={5} isIndeterminate color="blue.600" />
+          ) : (
+            "Submit"
+          )}
+        </Button>
       </form>
 
-      {isLoading && <div className="loading-spinner"></div>}
-
-      {isLoading == false && <img src={answer} />}
-    </>
+      {isLoading == false ? (
+        <img src={answer} />
+      ) : (
+        <CircularProgress isIndeterminate color="blue.600" />
+      )}
+    </div>
   );
 }
