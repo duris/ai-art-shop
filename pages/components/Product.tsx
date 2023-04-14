@@ -49,16 +49,18 @@ const Product = ({ variants, children, images }: Props) => {
     const elements = document.querySelectorAll<HTMLElement>(".variants");
     elements.forEach((element, i) => {
       const children = element.children as HTMLCollectionOf<HTMLElement>;
-
-      children[activeIndex].classList.add("active");
-
-      for (let j = 0; j < children.length; j++) {
-        if (j != activeIndex) {
-          children[j].style.display = "none";
-        } else {
-          children[j].style.display = "block";
-        }
+      if (children.length === 0) {
+        console.log("its zero");
       }
+      children[0].classList.add("active");
+
+      // for (let j = 0; j < children.length; j++) {
+      //   if (j != activeIndex) {
+      //     children[j].style.display = "none";
+      //   } else {
+      //     children[j].style.display = "block";
+      //   }
+      // }
       console.log(activeIndex);
     });
   }, [activeIndex]);

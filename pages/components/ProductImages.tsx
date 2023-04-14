@@ -38,8 +38,8 @@ const ProductImages = ({ images, variant_id }: Props) => {
         })} */}
 
       <img src={images[imageIndex].src} />
-      <div onClick={() => goRight()}>right arrow</div>
-      <div onClick={() => goLeft()}>left arrow</div>
+      <div onClick={() => goRight()}>right</div>
+      <div onClick={() => goLeft()}>left</div>
     </>
   );
 };
