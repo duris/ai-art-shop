@@ -19,7 +19,7 @@ footer,
 main {
   width: 100%;
   max-width: 1200px;
-  background-color: rgb(239, 239, 239);
+  background-color: #f7f7f7;
   padding: 1em;
 }
 header {
@@ -151,9 +151,10 @@ nav a span {
 }
 .providers-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1em;
 }
+
 .providers-wrapper > div {
   background: white;
   padding: 1em;
@@ -180,15 +181,89 @@ nav a span {
   min-height: 200px;
 }
 .provider-details-wrapper {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1em;
 }
 .provider-details-wrapper img {
+  width: 360px;
 }
-
+.provider-details {
+  padding: 2em;
+}
 .provider-details h1 {
   font-size: 26px;
   font-weight: bold;
   padding: 1em 0;
+}
+
+.blueprint-brand {
+  font-weight: bold;
+}
+.variant-wrapper {
+  padding: 2em 2em 0;
+  background: white;
+  margin-top: 2em;
+  flex-basis: 60%;
+  min-width: 420px;
+}
+.variant-wrapper select {
+  padding: 1em;
+  border-radius: 5px;
+}
+.variant-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 3px 5px #ddd;
+  padding: 1em;
+}
+
+.create-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.placeholder-wrapper {
+  display: flex;
+}
+
+.placeholder-wrapper > div {
+  padding: 1em;
+}
+.placeholder-wrapper > div:last-child {
+  order: -1;
+}
+.image-holder {
+  width: 100%;
+  padding: 2em;
+  background: white;
+  margin: 1.5em;
+}
+@media screen and (max-width: 600px) {
+  .variant-wrapper select {
+    padding: 1em;
+    border-radius: 5px;
+    width: 370px;
+  }
+}
+.placeholder-panel {
+  display: flex;
+  flex-direction: column;
+}
+.placeholder-panel > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #e9f5fb;
+  margin: 1em;
+  height: 340px;
+  transition: all;
+  transition-duration: 0.5s;
+}
+.placeholder-panel > div:hover {
+  background: #f1f9fd;
+  transition: all;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+.placeholder-panel > div:last-child {
+  order: -1;
 }

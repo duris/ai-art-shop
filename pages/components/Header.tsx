@@ -10,21 +10,14 @@ export default function Header() {
         <Link href="/">
           <span className={router.pathname == "/" ? "active" : ""}>Home</span>
         </Link>
-        <Link href="/shop">
-          <span className={router.pathname == "/shop" ? "active" : ""}>
+        <Link href="/shop/designs">
+          <span className={router.pathname == "/shop/designs" ? "active" : ""}>
             Shop
           </span>
         </Link>
         <Link href="/create">
           <span className={router.pathname == "/create" ? "active" : ""}>
-            Providers
-          </span>
-        </Link>
-        <Link href="/create/products">
-          <span
-            className={router.pathname == "/create/products" ? "active" : ""}
-          >
-            Products
+            Create
           </span>
         </Link>
         <Link href="/account/signup">

@@ -7,6 +7,7 @@ type Image = {
   src: string;
   variant_ids: Array<number>;
 };
+
 type Variant = {
   id: number;
   sku: string;

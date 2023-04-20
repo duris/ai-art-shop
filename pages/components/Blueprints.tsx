@@ -17,14 +17,17 @@ const Blueprints = ({ blueprints }: Props) => {
       <h1>Blueprints</h1>
       <div className="blueprints-wrapper">
         {blueprints && blueprints.length > 0
-          ? blueprints.map((blueprint) => {
-              return (
-                <div key={blueprint.id}>
-                  <h2 className="blueprint-title">{blueprint.title}</h2>
-                  <img src={blueprint.images[0]} />
-                </div>
-              );
-            })
+          ? blueprints
+              //   .filter((blueprint) => blueprint.brand === "Generic brand")
+              .map((blueprint) => {
+                return (
+                  <div key={blueprint.id}>
+                    <h2 className="blueprint-brand">{blueprint.brand}</h2>
+                    <h2 className="blueprint-title">{blueprint.title}</h2>
+                    <img src={blueprint.images[0]} />
+                  </div>
+                );
+              })
           : "Loading..."}
       </div>
     </>

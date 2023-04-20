@@ -18,24 +18,22 @@ const ProviderDetails = ({ details, id }: Props) => {
   const { slug } = router.query;
 
   const goToProduct = (provider_id: string, blueprint_id: string) => {
-    router.push(`/create/products/${blueprint_id}`);
+    router.push(`/create/products/${provider_id}/c${blueprint_id}`);
   };
   return (
     <div className="provider-details">
-      <h1>{details ? `${details.title}: ${id}` : "Loading..."}</h1>
       <div className="provider-details-wrapper">
         {details
-          ? details.blueprints.map((blueprint) => {
-              return (
-                <div
-                  key={blueprint.id}
-                  onClick={() => goToProduct(String(id), String(blueprint.id))}
-                >
-                  <div>{blueprint.title}</div>
-                  <img src={blueprint.images[0]} />
-                </div>
-              );
-            })
+          ? details.blueprints
+              .filter((blueprint) => blueprint.id === 1094)
+              .map((blueprint) => {
+                return (
+                  <div key={blueprint.id}>
+                    <div>{blueprint.title}</div>
+                    <img src={blueprint.images[0]} />
+                  </div>
+                );
+              })
           : ""}
       </div>
     </div>

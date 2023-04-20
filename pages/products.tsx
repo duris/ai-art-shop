@@ -12,11 +12,12 @@ export default function Products() {
   const fetchProducts = async () => {
     fetch("/api/get-blueprints")
       .then((res) => res.json())
-      .then((data) => console.log(data.data));
+      .then((data) => setBlueprints(data.data));
   };
 
   useEffect(() => {
     fetchProducts();
+    console.log(blueprints);
   }, []);
 
   return (

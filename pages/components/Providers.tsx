@@ -1,8 +1,17 @@
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { Blueprint } from "./Blueprints";
+import { Detail } from "./ProviderDetails";
 
 type Props = {
   providers: Array<Provider>;
   //   children: React.ReactNode;
+};
+
+type ProviderObj = {
+  id: number;
+  title: string;
+  products: Array<Blueprint>;
 };
 
 export type Provider = {
@@ -21,13 +30,18 @@ const Providers = ({ providers }: Props) => {
     <>
       <h1>Providers</h1>
       <div className="providers-wrapper">
-        {providers.map((provider) => {
-          return (
-            <div key={provider.id} onClick={() => handleClick(provider.id)}>
-              {provider.title}: {provider.id}
-            </div>
-          );
-        })}
+        {providers
+          .filter((provider) => provider.title === `Sensaria`)
+          .map((provider) => {
+            return (
+              <div key={provider.id} onClick={() => handleClick(provider.id)}>
+                <h2>
+                  {provider.title}: {provider.id}
+                </h2>
+                <div>{}</div>
+              </div>
+            );
+          })}
       </div>
     </>
   );

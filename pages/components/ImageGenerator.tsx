@@ -1,11 +1,4 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import styles from "@/styles/Home.module.css";
-import {
-  Button,
-  CircularProgress,
-  CircularProgressLabel,
-  Heading,
-} from "@chakra-ui/react";
 
 export default function ImageGenerator() {
   const [prompt, setPrompt] = useState("");
@@ -37,7 +30,7 @@ export default function ImageGenerator() {
 
   return (
     <div className="image-genertion">
-      <Heading>Create</Heading>
+      <h1>Create</h1>
       <form className="our-form" onSubmit={handleSubmit}>
         <input
           className="prompt-field"
@@ -46,26 +39,12 @@ export default function ImageGenerator() {
           onChange={handleChange}
           minLength={3}
         />
-        <Button
-          colorScheme="facebook"
-          className="prompt-button"
-          isDisabled={isLoading}
-          type="submit"
-          w={100}
-        >
-          {isLoading ? (
-            <CircularProgress size={5} isIndeterminate color="blue.600" />
-          ) : (
-            "Submit"
-          )}
-        </Button>
+        <button className="prompt-button" disabled={isLoading} type="submit">
+          {isLoading ? "Loading..." : "Submit"}
+        </button>
       </form>
 
-      {isLoading == false ? (
-        <img src={answer} />
-      ) : (
-        <CircularProgress isIndeterminate color="blue.600" />
-      )}
+      {isLoading == false ? <img src={answer} /> : ""}
     </div>
   );
 }
